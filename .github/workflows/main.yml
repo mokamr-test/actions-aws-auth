@@ -66,3 +66,6 @@ jobs:
 
       - name: Pull CLI image
         run: docker pull cr.sas.com/viya-4-x64_oci_linux_2-docker/sas-viya-cli:latest
+
+      - name: Docker Image list
+        run: docker image ls
