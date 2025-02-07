@@ -63,3 +63,6 @@ jobs:
 
       - name: Log in to Docker Registry
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login cr.sas.com -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin 
+
+      - name: Pull CLI image
+        run: docker pull cr.sas.com/viya-4-x64_oci_linux_2-docker/sas-viya-cli:latest
