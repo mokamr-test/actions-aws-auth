@@ -79,6 +79,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v1.7.0
+        with:
+          role-to-assume: arn:aws:iam::597088022543:role/GitHubAction-AssumeRoleWithAction #change to reflect your IAM role’s ARN
+          role-session-name: GitHub_to_AWS_via_FederatedOIDC
+          aws-region: ${{ env.AWS_REGION }}
+          
       - name: Log in to ECR
         run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 597088022543.dkr.ecr.us-east-1.amazonaws.com
 
