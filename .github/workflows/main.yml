@@ -61,8 +61,5 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Get Docker PWD
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" 
-
-      - name: Get Docker User
-        run: echo "${{ secrets.DOCKER_USERNAME }}" 
+      - name: Log in to Docker Registry
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login cr.sas.com -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin 
