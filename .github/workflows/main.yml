@@ -55,3 +55,14 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+  viya-cli:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get Docker PWD
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" 
+
+      - name: Get Docker User
+        run: echo "${{ secrets.DOCKER_USERNAME }}" 
