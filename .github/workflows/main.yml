@@ -27,7 +27,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::617292774228:role/GitHubAction-AssumeRoleWithAction #change to reflect your IAM role’s ARN
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
-          #aws-region: ${{ env.AWS_REGION }}
+          aws-region: ${{ env.AWS_REGION }}
       # Hello from AWS: WhoAmI
       - name: Sts GetCallerIdentity
         run: |
@@ -43,7 +43,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::617292774228:role/GitHubAction-AssumeRoleWithAction #change to reflect your IAM role’s ARN
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
-          #aws-region: ${{ env.AWS_REGION }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v2
